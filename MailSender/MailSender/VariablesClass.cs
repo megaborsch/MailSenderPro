@@ -8,7 +8,7 @@ namespace MailSender
 {
     public static class VariablesClass
     {
-        public static Dictionary<string, string> Senders
+        public static Dictionary<string, string> SendersOld
         {
             get { return dicSenders; }
         }

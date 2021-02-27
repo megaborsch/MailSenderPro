@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:data="clr-namespace:MailSender.Data"
+        xmlns:m="clr-namespace:MailSender.Models"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="Mail Sender" Height="450" Width="800" Icon="/Media/scheduler.png">
@@ -30,7 +32,7 @@
                     <ToolBarTray DockPanel.Dock="Top" VerticalAlignment="Top" Height="65" >
                     <ToolBar x:Name="tbSender" Height="30" Width="502" >
                             <Label x:Name="lSender" Content="Выбрать отправителя" Width="130" Height="25"></Label>
-                            <ComboBox x:Name="cbSenderSelect" Width="270" Height="25" ToolTip="Выбрать email отправителя" SelectedIndex="0">
+                            <ComboBox ItemsSource="{x:Static data:TestData.Senders }" DisplayMemberPath="Name" x:Name="cbSenderSelect" Width="270" Height="25" ToolTip="Выбрать email отправителя" SelectedIndex="0">
                             </ComboBox>
                             <Button x:Name="btnAddSender" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="25" ToolTip="Добавить" fa:Awesome.Content="Solid_Plus">
                             
@@ -45,7 +47,24 @@
                         </ToolBar>
                     <ToolBar x:Name="tbSmtp" HorizontalAlignment="Left" Height="30" Width="502" VerticalAlignment="Top" Band="1" BandIndex="0">
                             <Label x:Name="lSmtp" Content="Выбрать smtp-сервер" Height="25" Width="132"/>
-                            <ComboBox x:Name="cbSmtpSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" SelectedIndex="0" ToolTip="Выбрать smtp-сервер"/>
+                            <ComboBox ItemsSource="{x:Static data:TestData.Servers}" x:Name="cbSmtpSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" SelectedIndex="0">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                            <TextBlock.ToolTip>
+                                            <TextBlock>
+                                            Адрес:
+                                            <TextBlock Text="{Binding Address}"/>;
+                                             Порт:
+                                            <TextBlock Text="{Binding Port}"/>
+                                            </TextBlock>
+                                            </TextBlock.ToolTip>
+                                            Сервер:
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </TextBlock>
+                                 </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
                             <Button x:Name="btnAddSmtp" Width="25" Height="25" ToolTip="Добавить" fa:Awesome.Content="Solid_Plus">
                             </Button>
                             <Button x:Name="btnEditSmtp" Width="25" Height="25" ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit">
@@ -68,9 +87,21 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <DataGrid>
-                        
-                    </DataGrid>
+                    <GroupBox Header="Список получателей" Margin="3">
+                        <DataGrid AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  GridLinesVisibility="Vertical"
+                                  VerticalGridLinesBrush="DarkGray"
+                                  AlternatingRowBackground="#330000FF">
+                            <!--ItemsSource="{x:Static data:TestData.Recipients}"-->
+                                  
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" MinWidth="30"/>
+                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" MinWidth="120"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик" Name="tabPlanner">
@@ -228,9 +259,65 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Письма">
-
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+ Header="Письма">
+                        <ListBox>
+                            <ListBoxItem>Письмо 1</ListBoxItem>
+                            <ListBoxItem>Письмо 2</ListBoxItem>
+                            <ListBoxItem>Письмо 3</ListBoxItem>
+                        </ListBox>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Grid.Row="0" Header="Заголовок">
+                        <TextBox/>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Grid.Row="1" Header="Тело письма">
+                        <TextBox AcceptsReturn="True" AcceptsTab="True"/>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Статистика">
+                <Border Margin="10" Padding="10" BorderThickness="1"
+                        BorderBrush="Blue" CornerRadius="3">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="0,5,0,0"/>
+                                <Style.Triggers>
+                                    <Trigger Property="Grid.Column" Value="0">
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                                        <Setter Property="Margin" Value="0,5,5,0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Resources>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Отправлено писем:"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="0"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Всего отправителей:"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="0"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Всего получателей:"/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="0"/>
+                    </Grid>
+                </Border>
 
             </TabItem>
         </TabControl>
