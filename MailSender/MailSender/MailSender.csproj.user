@@ -7,6 +7,14 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ServerEditDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ServerEditDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="WpfMailSender.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,79 @@
+﻿<Window x:Class="MailSender.ServerEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MailSender"
+        mc:Ignorable="d"
+        Title="Почтовый сервер"
+         WindowStartupLocation="CenterOwner"
+         Width="330" Height="300">
+    <Grid>
+        <DockPanel Margin="5">
+            <DockPanel.Resources>
+                <!-- Для всех GroupBox... -->
+                <Style TargetType="GroupBox">
+                    <!-- ... убираем рамку -->
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+                <!-- Для всех Button... -->
+                <Style TargetType="Button">
+                    <!-- Внешняя рамка: -->
+                    <!-- лева и справа 7 -->
+                    <!-- сверху и снизу 0 -->
+                    <Setter Property="Margin" Value="7,0"/>
+                    <!-- Внутренняя рамка: -->
+                    <!-- лева и справа 30 -->
+                    <!-- сверху и снизу 10 -->
+                    <Setter Property="Padding" Value="30,10"/>
+                </Style>
+            </DockPanel.Resources>
+
+            <!-- Панель с кнопками внизу -->
+            <UniformGrid DockPanel.Dock="Bottom"
+ Rows="1"
+ HorizontalAlignment="Right"
+ Margin="0,10,10,10"
+ Button.Click="OnButtonClick">
+                <!-- Обработчик события кнопки можно "повесить" на всю панель -->
+                <Button Content="Ok" IsDefault="True"/>
+                <Button Content="Cancel" IsCancel="True"/>
+                <!-- IsDefault - кнопка ассоциируется с клавишей Enter -->
+                <!-- IsCancel - кнопка ассоциируется с клавишей Escape -->
+            </UniformGrid>
+            <GroupBox Header="Имя сервера" DockPanel.Dock="Top">
+                <TextBox Name="ServerName" x:FieldModifier="private"/>
+            </GroupBox>
+            <!-- Рамка здесь используется как контейнер для ориантации в макете -->
+            <Border DockPanel.Dock="Top">
+                <DockPanel>
+                    <GroupBox Header="SSL" DockPanel.Dock="Right">
+                        <CheckBox Name="ServerSSL"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                    </GroupBox>
+                    <GroupBox Header="Порт" DockPanel.Dock="Right">
+                        <!-- В обработчике события запретим ввод "не чисел" -->
+                        <TextBox Name="ServerPort" Text="25"
+                        PreviewTextInput="OnPortTextInput"/>
+                    </GroupBox>
+                    <GroupBox Header="Адрес">
+                        <TextBox Name="ServerAddress"/>
+                    </GroupBox>
+                </DockPanel>
+            </Border>
+            <!-- UniformGrid позволяет содержимое сделать одинакового размера -->
+            <UniformGrid DockPanel.Dock="Top" Rows="1">
+                <GroupBox Header="Логин">
+                    <TextBox Name="Login"/>
+                </GroupBox>
+                <GroupBox Header="Пароль">
+                    <PasswordBox Name="Password"/>
+                </GroupBox>
+            </UniformGrid>
+            <GroupBox Header="Описание">
+                <TextBox Name="ServerDescription"/>
+            </GroupBox>
+        </DockPanel>
+    </Grid>
+</Window>

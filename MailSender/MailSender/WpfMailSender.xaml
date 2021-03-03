@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:data="clr-namespace:MailSender.Data"
-        xmlns:m="clr-namespace:MailSender.Models"
+        xmlns:m="clr-namespace:MailSender.Models;assembly=MailSender.lib"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="Mail Sender" Height="450" Width="800" Icon="/Media/scheduler.png">
@@ -55,7 +55,7 @@
                                             <TextBlock>
                                             Адрес:
                                             <TextBlock Text="{Binding Address}"/>;
-                                             Порт:
+                                            Порт:
                                             <TextBlock Text="{Binding Port}"/>
                                             </TextBlock>
                                             </TextBlock.ToolTip>
@@ -65,11 +65,11 @@
                                  </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
-                            <Button x:Name="btnAddSmtp" Width="25" Height="25" ToolTip="Добавить" fa:Awesome.Content="Solid_Plus">
+                            <Button x:Name="btnAddSmtp" Width="25" Height="25" ToolTip="Добавить" fa:Awesome.Content="Solid_Plus" Click="OnAddServerButtonClick">
                             </Button>
-                            <Button x:Name="btnEditSmtp" Width="25" Height="25" ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit">
+                            <Button x:Name="btnEditSmtp" Width="25" Height="25" ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Click="OnEditServerButtonClick">
                             </Button>
-                            <Button x:Name="btnDeleteSmtp" Width="25" Height="25" ToolTip="Удалить" fa:Awesome.Content="Solid_Trash">
+                            <Button x:Name="btnDeleteSmtp" Width="25" Height="25" ToolTip="Удалить" fa:Awesome.Content="Solid_Trash" Click="OnDeleteServerButtonClick">
                             </Button>
                         </ToolBar>
                         <ToolBar x:Name="tbPlanner" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="230" Band="0" BandIndex="1" >
@@ -88,17 +88,19 @@
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей" Margin="3">
-                        <DataGrid AutoGenerateColumns="False"
+                        <DataGrid 
+                                  Name="RecipientsList"                                  AutoGenerateColumns="False"
                                   IsReadOnly="True"
                                   GridLinesVisibility="Vertical"
                                   VerticalGridLinesBrush="DarkGray"
-                                  AlternatingRowBackground="#330000FF">
-                            <!--ItemsSource="{x:Static data:TestData.Recipients}"-->
+                                  AlternatingRowBackground="#330000FF"
+                                  ItemsSource="{x:Static data:TestData.Recipients}">
                                   
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" MinWidth="30"/>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" MinWidth="120"/>
+                                <DataGridTextColumn Header="ID" MinWidth="30" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" MinWidth="150"/>
+                                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" MinWidth="150"/>
+                                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
@@ -268,19 +270,18 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <GroupBox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
- Header="Письма">
-                        <ListBox>
-                            <ListBoxItem>Письмо 1</ListBoxItem>
-                            <ListBoxItem>Письмо 2</ListBoxItem>
-                            <ListBoxItem>Письмо 3</ListBoxItem>
-                        </ListBox>
+                    <GroupBox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Header="Письма">
+                        <ListBox
+                             Name="MessagesList"
+                             ItemsSource="{x:Static data:TestData.Messages}"
+                             DisplayMemberPath="Tittle"
+                             SelectedIndex="0"/>
                     </GroupBox>
                     <GroupBox Grid.Column="1" Grid.Row="0" Header="Заголовок">
-                        <TextBox/>
+                        <TextBox Text="{Binding SelectedItem.Tittle, ElementName=MessagesList}"/>
                     </GroupBox>
                     <GroupBox Grid.Column="1" Grid.Row="1" Header="Тело письма">
-                        <TextBox AcceptsReturn="True" AcceptsTab="True"/>
+                        <TextBox AcceptsReturn="True" AcceptsTab="True" Text="{Binding SelectedItem.Body, ElementName=MessagesList}"/>
                     </GroupBox>
                 </Grid>
             </TabItem>

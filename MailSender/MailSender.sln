@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6FC2B0DB-2988-4BAA-9D06-30D4C30263CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{7BE3058B-3828-4EC6-9FAB-8B81AF5DE24D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{7BE3058B-3828-4EC6-9FAB-8B81AF5DE24D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestMailSender", "WpfTestMailSender\WpfTestMailSender.csproj", "{A71A0C36-037B-4F48-96E4-DC571765C361}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTestMailSender", "WpfTestMailSender\WpfTestMailSender.csproj", "{A71A0C36-037B-4F48-96E4-DC571765C361}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender", "MailSender\MailSender.csproj", "{873F97E5-34EA-4681-B7C8-14C54E987F9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSender", "MailSender\MailSender.csproj", "{873F97E5-34EA-4681-B7C8-14C54E987F9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib", "MailSender.lib\MailSender.lib.csproj", "{2E6FA585-AAB9-4096-9417-DADAB84C0B59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{873F97E5-34EA-4681-B7C8-14C54E987F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{873F97E5-34EA-4681-B7C8-14C54E987F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{873F97E5-34EA-4681-B7C8-14C54E987F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6FA585-AAB9-4096-9417-DADAB84C0B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6FA585-AAB9-4096-9417-DADAB84C0B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6FA585-AAB9-4096-9417-DADAB84C0B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6FA585-AAB9-4096-9417-DADAB84C0B59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,13 @@
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\bin\Debug\netcoreapp3.1\TestConsole.exe
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\bin\Debug\netcoreapp3.1\TestConsole.deps.json
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\bin\Debug\netcoreapp3.1\TestConsole.runtimeconfig.json
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\bin\Debug\netcoreapp3.1\TestConsole.runtimeconfig.dev.json
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\bin\Debug\netcoreapp3.1\TestConsole.dll
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\bin\Debug\netcoreapp3.1\TestConsole.pdb
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.csprojAssemblyReference.cache
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.AssemblyInfoInputs.cache
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.AssemblyInfo.cs
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.csproj.CoreCompileInputs.cache
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.dll
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.pdb
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\TestConsole\obj\Debug\netcoreapp3.1\TestConsole.genruntimeconfig.cache

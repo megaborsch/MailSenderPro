@@ -22,3 +22,8 @@ C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\ne
 C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\net5.0-windows\ref\MailSender.dll
 C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\net5.0-windows\MailSender.pdb
 C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\net5.0-windows\MailSender.genruntimeconfig.cache
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\net5.0-windows\MailSender.csprojAssemblyReference.cache
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\net5.0-windows\ServerEditDialog.g.cs
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\obj\Debug\net5.0-windows\ServerEditDialog.baml
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\bin\Debug\net5.0-windows\MailSender.lib.dll
+C:\Users\fearm\Documents\GitHub\MailSenderPro\MailSender\MailSender\bin\Debug\net5.0-windows\MailSender.lib.pdb

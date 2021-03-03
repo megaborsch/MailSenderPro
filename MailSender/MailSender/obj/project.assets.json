@@ -12,6 +12,16 @@
           "lib/net5.0-windows/FontAwesome5.Net.dll": {},
           "lib/net5.0-windows/FontAwesome5.dll": {}
         }
+      },
+      "MailSender.lib/0.0.1": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MailSender.lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MailSender.lib.dll": {}
+        }
       }
     }
   },
@@ -57,11 +67,17 @@
         "lib/uap10.0/FontAwesome5.dll",
         "lib/uap10.0/FontAwesome5.xml"
       ]
+    },
+    "MailSender.lib/0.0.1": {
+      "type": "project",
+      "path": "../MailSender.lib/MailSender.lib.csproj",
+      "msbuildProject": "../MailSender.lib/MailSender.lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "FontAwesome5 >= 2.1.0"
+      "FontAwesome5 >= 2.1.0",
+      "MailSender.lib >= 0.0.1"
     ]
   },
   "packageFolders": {
@@ -90,7 +106,11 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\fearm\\Documents\\GitHub\\MailSenderPro\\MailSender\\MailSender.lib\\MailSender.lib.csproj": {
+              "projectPath": "C:\\Users\\fearm\\Documents\\GitHub\\MailSenderPro\\MailSender\\MailSender.lib\\MailSender.lib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

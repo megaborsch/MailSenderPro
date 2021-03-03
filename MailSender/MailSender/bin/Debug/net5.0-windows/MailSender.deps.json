@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "MailSender/1.0.0": {
         "dependencies": {
-          "FontAwesome5": "2.1.0"
+          "FontAwesome5": "2.1.0",
+          "MailSender.lib": "0.0.1"
         },
         "runtime": {
           "MailSender.dll": {}
@@ -25,6 +26,11 @@
             "fileVersion": "2.1.0.0"
           }
         }
+      },
+      "MailSender.lib/0.0.1": {
+        "runtime": {
+          "MailSender.lib.dll": {}
+        }
       }
     }
   },
@@ -40,6 +46,11 @@
       "sha512": "sha512-AHVpPBi8fDnPVFqos07UT+C/XGziRYP90s+8Eixd0M4vDuEZ9ZyIn3gcaBkXmWgmPVuEnR1GtAQlBTjNwRg3QA==",
       "path": "fontawesome5/2.1.0",
       "hashPath": "fontawesome5.2.1.0.nupkg.sha512"
+    },
+    "MailSender.lib/0.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
